@@ -52,5 +52,13 @@ class MainActivity : AppCompatActivity() {
                 toast.show()
             }
         }
+
+        // Sets text at bottom of dashboard based on login status.
+        val loggedIn = findViewById<TextView>(R.id.txtLoggedIn)
+        if (FirebaseAuth.getInstance().currentUser == null) {
+            loggedIn.setText("Not currently logged in.")
+        } else {
+            loggedIn.setText("Currently logged in as: " + FirebaseAuth.getInstance().currentUser?.email)
+        }
     }
 }
