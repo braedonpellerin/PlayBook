@@ -3,21 +3,35 @@ package com.example.finalproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import com.example.finalproject.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
+import android.text.SpannableString
+import android.text.style.UnderlineSpan
 
+// Activity for login.
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Firebase instance.
         firebaseAuth = FirebaseAuth.getInstance()
+
+        // Styling link text that navigates to Register.
+        val registerText = findViewById<TextView>(R.id.textView)
+        val registerString = registerText.text.toString()
+        val spannableString = SpannableString(registerString);
+        spannableString.setSpan(UnderlineSpan(), 0, registerString.length, 0)
+        registerText.text = spannableString
+
+        // OnClick listener to navigate to Register from Login.
         binding.textView.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)

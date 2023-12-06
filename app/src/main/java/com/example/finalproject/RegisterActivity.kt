@@ -3,13 +3,15 @@ package com.example.finalproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import com.example.finalproject.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import android.text.SpannableString
+import android.text.style.UnderlineSpan
 
 // Activity for registration.
 class RegisterActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
@@ -21,6 +23,13 @@ class RegisterActivity : AppCompatActivity() {
 
         // Firebase instance.
         firebaseAuth = FirebaseAuth.getInstance()
+
+        // Styling link text that navigates to Login.
+        val loginText = findViewById<TextView>(R.id.textView)
+        val loginString = loginText.text.toString()
+        val spannableString = SpannableString(loginString);
+        spannableString.setSpan(UnderlineSpan(), 0, loginString.length, 0)
+        loginText.text = spannableString
 
         // OnClick listener for text view - redirect to login activity.
         binding.textView.setOnClickListener {
