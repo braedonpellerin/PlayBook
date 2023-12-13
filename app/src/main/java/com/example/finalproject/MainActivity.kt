@@ -29,15 +29,16 @@ class MainActivity : AppCompatActivity() {
         login.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             // If the user is not logged in, brings them to login page.
-            if (FirebaseAuth.getInstance().currentUser == null) {
+            if(FirebaseAuth.getInstance().currentUser == null) {
                 startActivity(intent)
-            } else {  // Else displays that they are already logged in.
+            }
+            else {  // Else displays that they are already logged in.
                 val toast = Toast.makeText(applicationContext, "Already logged in.", Toast.LENGTH_SHORT)
                 toast.show()
             }
         }
 
-        // Click listener to sign out.
+        // OnClick listener to sign out.
         val logout = findViewById<Button>(R.id.btnLogout)
         logout.setOnClickListener {
             // If there is no user signed in, display that they are already signed out.
@@ -50,6 +51,30 @@ class MainActivity : AppCompatActivity() {
                 finish()
                 startActivity(getIntent())
                 toast.show()
+            }
+        }
+
+        val submit = findViewById<Button>(R.id.btnSubmitGame)
+        submit.setOnClickListener {
+            if (FirebaseAuth.getInstance().currentUser == null) {
+                val toast = Toast.makeText(applicationContext, "You must be signed in to submit a game.", Toast.LENGTH_LONG)
+                toast.show()
+            }
+            else {
+                val intent = Intent(this, SubmitGameActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        val view = findViewById<Button>(R.id.btnViewGames)
+        view.setOnClickListener {
+            if (FirebaseAuth.getInstance().currentUser == null) {
+                val toast = Toast.makeText(applicationContext, "You must be signed in to view your games.", Toast.LENGTH_LONG)
+                toast.show()
+            }
+            else {
+                val intent = Intent(this, SubmitGameActivity::class.java)
+                startActivity(intent)
             }
         }
 
