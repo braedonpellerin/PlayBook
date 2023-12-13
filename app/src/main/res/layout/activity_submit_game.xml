@@ -4,6 +4,138 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/submit_screen"
     tools:context=".SubmitGameActivity">
 
+    <TextView
+        android:id="@+id/txtSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:text="Submit a Game!"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/gameNameLayout"
+        style="@style/LoginTextInputOuterFieldStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        app:boxStrokeColor="@color/purple_200"
+        app:hintTextColor="@color/purple_200"
+        app:layout_constraintBottom_toTopOf="@+id/platformLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSubmit">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtGameName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Game Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/platformLayout"
+        style="@style/LoginTextInputOuterFieldStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        app:boxStrokeColor="@color/purple_200"
+        app:hintTextColor="@color/purple_200"
+        app:layout_constraintBottom_toTopOf="@+id/hoursLayout"
+        app:layout_constraintTop_toBottomOf="@+id/gameNameLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtPlatform"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Platform" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/hoursLayout"
+        style="@style/LoginTextInputOuterFieldStyle"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        app:boxStrokeColor="@color/purple_200"
+        app:hintTextColor="@color/purple_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/platformLayout"
+        app:layout_constraintBottom_toTopOf="@+id/ratingLayout">
+
+        <EditText
+            android:id="@+id/txtHours"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Hours"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ratingLayout"
+        style="@style/LoginTextInputOuterFieldStyle"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        app:boxStrokeColor="@color/purple_200"
+        app:hintTextColor="@color/purple_200"
+        app:layout_constraintTop_toBottomOf="@+id/hoursLayout"
+        app:layout_constraintBottom_toTopOf="@+id/commentsLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <EditText
+            android:id="@+id/txtRating"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Rating"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/commentsLayout"
+        style="@style/LoginTextInputOuterFieldStyle"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:boxStrokeColor="@color/purple_200"
+        app:hintTextColor="@color/purple_200"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmitGameFinal"
+        app:layout_constraintTop_toBottomOf="@+id/ratingLayout"
+        tools:layout_editor_absoluteX="40dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtComments"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Comments (optional)" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnSubmitGameFinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        android:text="Submit Game"
+        app:layout_constraintTop_toBottomOf="@+id/commentsLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
