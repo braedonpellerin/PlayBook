@@ -49,11 +49,13 @@ class RegisterActivity : AppCompatActivity() {
 
                     firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
+                            Toast.makeText(this, "Sign up successful. Please login with your created account.", Toast.LENGTH_LONG).show()
                             val intent = Intent(this, LoginActivity::class.java)
                             startActivity(intent)
                         } else {
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-
+                            val error = it.exception.toString()
+                            val message = error.substring(error.indexOf(":") + 2)
+                            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
                         }
                     }
                 } else { // Else displays that the passwords do not match.

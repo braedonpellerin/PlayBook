@@ -47,11 +47,13 @@ class LoginActivity : AppCompatActivity() {
                 // Try to login using provided credentials.
                 firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                     if (it.isSuccessful) { // If login is successful, direct back to main activity.
+                        Toast.makeText(this, "Sign in successful.", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     } else { // Else display the login was not successful.
-                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-
+                        val error = it.exception.toString()
+                        val message = error.substring(error.indexOf(":") + 2)
+                        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
                     }
                 }
             } else { // Else display that a field was not filled.
