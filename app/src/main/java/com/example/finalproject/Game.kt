@@ -6,7 +6,6 @@ class Game (
     val platform: String? = null,
     val hours: Int? = null,
     val rating: Int? = null,
-    val completed: Boolean? = null,
     val comments: String? = null)
 {
 }
