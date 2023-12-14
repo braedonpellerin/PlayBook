@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                 toast.show()
             }
             else {
-                val intent = Intent(this, SubmitGameActivity::class.java)
+                val intent = Intent(this, ViewGamesActivity::class.java)
                 startActivity(intent)
             }
         }
