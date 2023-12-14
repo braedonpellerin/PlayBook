@@ -66,7 +66,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/hoursLayout"
         style="@style/LoginTextInputOuterFieldStyle"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginStart="40dp"
@@ -74,7 +74,7 @@
         app:hintTextColor="@color/purple_200"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/platformLayout"
-        app:layout_constraintBottom_toTopOf="@+id/ratingLayout">
+        app:layout_constraintBottom_toTopOf="@+id/scoreLayout">
 
         <EditText
             android:id="@+id/txtHours"
@@ -86,9 +86,9 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ratingLayout"
+        android:id="@+id/scoreLayout"
         style="@style/LoginTextInputOuterFieldStyle"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginStart="40dp"
@@ -100,10 +100,10 @@
         >
 
         <EditText
-            android:id="@+id/txtRating"
+            android:id="@+id/txtScore"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Rating"
+            android:hint="Score (1 - 5)"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,7 +118,7 @@
         app:boxStrokeColor="@color/purple_200"
         app:hintTextColor="@color/purple_200"
         app:layout_constraintBottom_toTopOf="@+id/btnSubmitGameFinal"
-        app:layout_constraintTop_toBottomOf="@+id/ratingLayout"
+        app:layout_constraintTop_toBottomOf="@+id/scoreLayout"
         tools:layout_editor_absoluteX="40dp">
 
         <com.google.android.material.textfield.TextInputEditText
