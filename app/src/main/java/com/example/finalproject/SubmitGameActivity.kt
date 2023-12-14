@@ -22,18 +22,18 @@ class SubmitGameActivity : AppCompatActivity() {
             if(binding.txtGameName.text.toString() == "" ||
                 binding.txtPlatform.text.toString() == "" ||
                 binding.txtHours.text.toString() == "" ||
-                binding.txtRating.text.toString() == "") {
+                binding.txtScore.text.toString() == "") {
                 Toast.makeText(this, "Please ensure all input fields are filled in.", Toast.LENGTH_SHORT).show()
             }
             else {
                 val gameName = binding.txtGameName.text.toString()
                 val platform = binding.txtPlatform.text.toString()
                 val hours = binding.txtHours.text.toString().toInt()
-                val rating = binding.txtRating.text.toString().toInt()
+                val score = binding.txtScore.text.toString().toInt()
                 val comments = binding.txtComments.text.toString()
 
                 databaseReference = FirebaseDatabase.getInstance().getReference("Games")
-                val gameData = Game(gameName, platform, hours, rating, comments)
+                val gameData = Game(gameName, platform, hours, score, comments)
 
                 databaseReference.child(gameName).setValue(gameData).addOnSuccessListener {
                     Toast.makeText(this, "Game Successfully Submitted.", Toast.LENGTH_SHORT).show()
@@ -44,7 +44,6 @@ class SubmitGameActivity : AppCompatActivity() {
                     Toast.makeText(this, "There was an error during submission.", Toast.LENGTH_SHORT).show()
                 }
             }
-            }
-
+        }
     }
 }
