@@ -54,25 +54,29 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // OnClick listener to submit a game.
         val submit = findViewById<Button>(R.id.btnSubmitGame)
         submit.setOnClickListener {
+            // If the user is not signed in, display a message saying they must be.
             if (FirebaseAuth.getInstance().currentUser == null) {
-                val toast = Toast.makeText(applicationContext, "You must be signed in to submit a game.", Toast.LENGTH_LONG)
+                val toast = Toast.makeText(applicationContext, "You must be signed in to submit a game.", Toast.LENGTH_SHORT)
                 toast.show()
             }
-            else {
+            else { // Else navigate to the page.
                 val intent = Intent(this, SubmitGameActivity::class.java)
                 startActivity(intent)
             }
         }
 
+        // OnClick listener to view submitted games.
         val view = findViewById<Button>(R.id.btnViewGames)
         view.setOnClickListener {
+            // If the user is not signed in, display a message saying they must be.
             if (FirebaseAuth.getInstance().currentUser == null) {
-                val toast = Toast.makeText(applicationContext, "You must be signed in to view your games.", Toast.LENGTH_LONG)
+                val toast = Toast.makeText(applicationContext, "You must be signed in to view games.", Toast.LENGTH_SHORT)
                 toast.show()
             }
-            else {
+            else { // Else navigate to the page.
                 val intent = Intent(this, ViewGamesActivity::class.java)
                 startActivity(intent)
             }
